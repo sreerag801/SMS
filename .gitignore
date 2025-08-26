@@ -1,0 +1,54 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.rsuser
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Visual Studio cache/options
+.vs/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Entity Framework Migrations (optional – if you don’t want auto-generated snapshots in git)
+**/Migrations/*Designer.cs
+
+# Test results
+TestResults/
+*.coverage
+*.coveragexml
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.lock
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
