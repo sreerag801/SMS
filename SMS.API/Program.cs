@@ -51,3 +51,5 @@ finally
     Console.WriteLine("Application Shutdown");
     Log.CloseAndFlush();
 }
+
+public partial class Program { }
