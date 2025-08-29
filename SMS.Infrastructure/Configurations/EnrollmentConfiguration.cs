@@ -9,6 +9,10 @@ public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
     {
         builder.HasKey(e => e.Id);
 
+        builder
+            .HasIndex(cs => new { cs.CourseId, cs.StudentId })
+            .IsUnique();
+
         builder.HasOne(e => e.Student)
                    .WithMany(s => s.Enrollments)
                    .HasForeignKey(e => e.StudentId)

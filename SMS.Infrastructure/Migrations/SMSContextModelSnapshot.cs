@@ -111,9 +111,10 @@ namespace SMS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
                     b.HasIndex("StudentId");
+
+                    b.HasIndex("CourseId", "StudentId")
+                        .IsUnique();
 
                     b.ToTable("Enrollments");
                 });
