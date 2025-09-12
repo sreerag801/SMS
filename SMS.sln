@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3DDCD224
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.WebApi.IntegrationTests", "SMS.WebApi.IntegrationTests\SMS.WebApi.IntegrationTests.csproj", "{B2414C71-FE87-41AF-8B15-1763819B19F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Tests", "Service.Tests\Service.Tests.csproj", "{8B3AFB5C-9CBC-48BD-A8CD-9EBF8F814A4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Tests", "Service.Tests\Service.Tests.csproj", "{8B3AFB5C-9CBC-48BD-A8CD-9EBF8F814A4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS.Repositories", "SMS.Repositories\SMS.Repositories.csproj", "{C363E0A0-7A51-44D4-96E3-2FA460FF7B3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{8B3AFB5C-9CBC-48BD-A8CD-9EBF8F814A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B3AFB5C-9CBC-48BD-A8CD-9EBF8F814A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B3AFB5C-9CBC-48BD-A8CD-9EBF8F814A4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C363E0A0-7A51-44D4-96E3-2FA460FF7B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C363E0A0-7A51-44D4-96E3-2FA460FF7B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C363E0A0-7A51-44D4-96E3-2FA460FF7B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C363E0A0-7A51-44D4-96E3-2FA460FF7B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

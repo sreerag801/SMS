@@ -40,5 +40,11 @@ public static class Student
             return Results.Ok($"Successfully removed student {studentId}.");
         })
         .WithName("DeleteStudent");
+
+        v1.MapGet("/get-all-using-dapper", async (IStudentService service, CancellationToken cancellationToken) =>
+        {
+            return await service.GetStudentsFromDapperRepoASync(cancellationToken);
+        })
+        .WithName("GetAllStudentsUsingSqlDapperRepo");
     }
 }

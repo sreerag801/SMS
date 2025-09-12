@@ -1,4 +1,5 @@
 ﻿using Service.Tests.Fixture;
+using SMS.Repositories.Repositories.Sample;
 using SMS.Service.Services.Students;
 
 namespace Service.Tests.Tests;
@@ -6,12 +7,13 @@ namespace Service.Tests.Tests;
 public class StudentServiceTests : IClassFixture<SMSContextFixture>
 {
     private IStudentService _studentService;
+    private IStudentRepo _studentRepo;
     private readonly SMSContextFixture _fixture;
 
     public StudentServiceTests(SMSContextFixture fixture)
     {
         _fixture = fixture;
-        _studentService = new StudentService(_fixture!.SMSContext, timeProvider: TimeProvider.System);
+        _studentService = new StudentService(_fixture!.SMSContext, _studentRepo, timeProvider: TimeProvider.System);
     }
 
     [Fact]

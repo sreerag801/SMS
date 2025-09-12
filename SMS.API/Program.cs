@@ -1,8 +1,9 @@
+using Serilog;
 using SMS.API.API;
 using SMS.API.Middlewares;
 using SMS.Infrastructure;
+using SMS.Repositories;
 using SMS.Service;
-using Serilog;
 
 Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
@@ -17,6 +18,7 @@ try
     builder.Services.AddSwaggerGen();
     builder.Services.AddInfrastructureServices(builder.Configuration, builder.Environment.IsDevelopment());
     builder.Services.AddServicesDependencies(builder.Configuration, builder.Environment.IsDevelopment());
+    builder.Services.AddRepositories(builder.Configuration, builder.Environment.IsDevelopment());
 
     var app = builder.Build();
 

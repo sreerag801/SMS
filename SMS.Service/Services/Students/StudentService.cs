@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SMS.Domain.Entities;
+using SMS.Repositories.Repositories.Sample;
 using SMS.Service.Common.Exceptions;
 using SMS.Service.Common.Interface;
 using SMS.Service.Shared.Dto;
@@ -7,7 +8,7 @@ using SMS.Service.Shared.Requests;
 
 namespace SMS.Service.Services.Students;
 
-public class StudentService(ISMSContext context, TimeProvider timeProvider) : IStudentService
+public class StudentService(ISMSContext context, IStudentRepo studentRepo, TimeProvider timeProvider) : IStudentService
 {
     public async Task<Guid> CreateAsync(CreateStudentRequest request, CancellationToken cancellationToken = default)
     {
@@ -143,5 +144,20 @@ public class StudentService(ISMSContext context, TimeProvider timeProvider) : IS
         await context.SaveChangesAsync();
 
         return existingStudent.EntityId;
+    }
+
+    public async Task<IEnumerable<StudentDto>> GetStudentsFromDapperRepoASync(CancellationToken cancellationToken)
+    {
+        return (await studentRepo.GetAllAsync(cancellationToken)).Select(s =>
+            new StudentDto
+            {
+                FirstName = s.FirstName,
+                LastName = s.LastName,
+                Address = s.Address,
+                DateOfBirth = s.DateOfBirth,
+                Email = s.Email,
+                Gender = s.Gender,
+                PhoneNumber = s.PhoneNumber,
+            });
     }
 }
