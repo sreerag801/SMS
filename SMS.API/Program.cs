@@ -1,6 +1,7 @@
 using Serilog;
 using SMS.API.API;
 using SMS.API.Middlewares;
+using SMS.API.Startup;
 using SMS.Infrastructure;
 using SMS.Repositories;
 using SMS.Service;
@@ -10,15 +11,17 @@ Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 try
 {
     var builder = WebApplication.CreateBuilder(args);
+    var configuration = builder.LoadConfiguration(args);
+
     builder.Services.AddSerilog(lc => lc.ReadFrom.Configuration(builder.Configuration));
 
     // Add services to the container.
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-    builder.Services.AddInfrastructureServices(builder.Configuration, builder.Environment.IsDevelopment());
-    builder.Services.AddServicesDependencies(builder.Configuration, builder.Environment.IsDevelopment());
-    builder.Services.AddRepositories(builder.Configuration, builder.Environment.IsDevelopment());
+    builder.Services.AddInfrastructureServices(configuration, builder.Environment.IsDevelopment());
+    builder.Services.AddServicesDependencies(configuration, builder.Environment.IsDevelopment());
+    builder.Services.AddRepositories(configuration, builder.Environment.IsDevelopment());
 
     var app = builder.Build();
 

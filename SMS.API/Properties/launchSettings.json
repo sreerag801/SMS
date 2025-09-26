@@ -1,17 +1,30 @@
 {
   "profiles": {
-    "http": {
+    "http-swagger (development)": {
       "commandName": "Project",
+      "commandLineArgs": "Development",
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5036",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5036"
+      "dotnetRunMessages": true
     },
-    "https": {
+    "http-swagger (UAT)": {
       "commandName": "Project",
+      "commandLineArgs": "UAT",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5036",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    },
+    "https-swagger (development)": {
+      "commandName": "Project",
+      "commandLineArgs": "Development",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
