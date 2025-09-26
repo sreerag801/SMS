@@ -5,6 +5,8 @@ using SMS.API.Startup;
 using SMS.Infrastructure;
 using SMS.Repositories;
 using SMS.Service;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
@@ -22,6 +24,11 @@ try
     builder.Services.AddInfrastructureServices(configuration, builder.Environment.IsDevelopment());
     builder.Services.AddServicesDependencies(configuration, builder.Environment.IsDevelopment());
     builder.Services.AddRepositories(configuration, builder.Environment.IsDevelopment());
+    builder.Services.ConfigureHttpJsonOptions(options =>
+    {
+        options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 
     var app = builder.Build();
 
