@@ -1,13 +1,21 @@
 ﻿using SMS.Repositories.Providers;
+using SMS.Repositories.Repositories.Sample;
 using System.Data;
 
 namespace SMS.Repositories.Persistance;
 
-public class SqlServerUnitOfWork(IDbConnection dbConnection) : IUnitOfWork
+public class SqlServerUnitOfWork : IUnitOfWork
 {
-    public IDbConnection Connection { get; } = dbConnection;
+    public SqlServerUnitOfWork(IDbConnection dbConnection)
+    {
+        Connection = dbConnection;
+        StudentRepo = new StudentRepo(this);
+    }
+    public IDbConnection Connection { get; }
 
     public IDbTransaction? Transaction  { get; private set; }
+
+    public IStudentRepo StudentRepo { get; }
 
     public void BeginTransaction()
     {
